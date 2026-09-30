@@ -1,7 +1,7 @@
 # Avvio rapido — 2.5vibePlus4
 
 Estrarre lo ZIP in una cartella. Non servono altri checkout di 3Dvibe64.
-Per giocare usare i quattro PRG in demos, senza compilare. Scegliere xplus4,
+Per giocare usare i sei PRG in demos, senza compilare. Scegliere xplus4,
 Commodore Plus/4 / TED, configurazione stock e standard PAL/NTSC.
 
 Plus/4: 64 KB, non C16 da 16 KB. PRG BASIC 3.5 a $1001, SYS 4109.
@@ -17,6 +17,16 @@ python -B build.py --scene examples/demo2-original.json --run interactive --out 
 python -B build.py --scene examples/demo2-optimized.json --run auto --out ../2.5vibePlus4-optimized-auto
 python -B build.py --scene examples/demo2-optimized.json --run interactive --out ../2.5vibePlus4-optimized-interactive
 ```
+
+Demo infinita (generatore specializzato separato, non JSON delle mappe fisse):
+
+```sh
+python -B build_infinite.py --run auto --out ../2.5vibePlus4-infinite-auto
+python -B build_infinite.py --run interactive --out ../2.5vibePlus4-infinite-interactive
+```
+
+Entrambe senza musica. Aggiungere `--seed 0x12345678` per riprodurre il mondo;
+il default campiona lo stato all'avvio. Vedere [Mondo infinito](docs/INFINITE.it.md).
 
 Le cartelle output devono essere nuove ed esterne all’SDK. La build produce
 PRG, ASM, label, listing, log e scena; gli intermedi restano nell’output.
