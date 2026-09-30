@@ -2398,6 +2398,9 @@ fx_inside_plane:
  sta layer
  jsr layer_heights
 rx_continue_portal:
+ ; The camera-containing volume has ended; never carry that state onward.
+ lda #0
+ sta portal_inside
  ; The exit routine leaves map_ptr at the first cell beyond the volume.
  ; This cell has already been counted, but its side distance not incremented.
  ldy #0
@@ -3299,7 +3302,7 @@ read_input:
  rts
 input_normal:
  jmp ted_read_controls
- .fill $2406-*,0
+ .fill $240a-*,0
 
 collision_check:
  sec
@@ -4053,6 +4056,9 @@ ss_mark_column:
  lda upper_owner,x
  cmp upper_owner-2,x
  bne ss_mark_yes
+ lda fx_near_plane,x
+ cmp fx_near_plane-2,x
+ bne ss_mark_yes
  lda fx_exit_plane,x
  cmp fx_exit_plane-2,x
  bne ss_mark_yes
@@ -4064,6 +4070,9 @@ ss_mark_left_done:
  bne ss_mark_yes
  lda upper_owner,x
  cmp upper_owner+2,x
+ bne ss_mark_yes
+ lda fx_near_plane,x
+ cmp fx_near_plane+2,x
  bne ss_mark_yes
  lda fx_exit_plane,x
  cmp fx_exit_plane+2,x
