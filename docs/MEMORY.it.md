@@ -1,6 +1,7 @@
 # Memoria e piattaforma
 
-Indirizzi esadecimali. Nessuna modifica al layout geometrico qualificato.
+Indirizzi esadecimali. Sotto il layout delle mappe fisse; la demo procedurale
+ha una [mappa memoria separata](INFINITE.it.md). Confini delle regioni invariati.
 
 | Range | Allocation |
 |---|---|
@@ -8,7 +9,7 @@ Indirizzi esadecimali. Nessuna modifica al layout geometrico qualificato.
 | 0002–00EC | Renderer, navigation, IRQ state/scratch |
 | 0100–01FF | CPU stack |
 | 0200–07FF | Lookup RAM after temporary loader completes |
-| 0801–2E73 auto / 0801–2C71 interactive | Low program; 140 / 654 bytes before 2F00 |
+| 0801–2E87 auto / 0801–2C85 interactive | Low program; 120 / 634 bytes before 2F00 |
 | 2F00–3BFF | Ray, edge, refinement and projection workspace |
 | 3C00–3FFF | 32×32 solid map |
 | 4400–57FF | Geometry/lookups/fill masks/navigation data |

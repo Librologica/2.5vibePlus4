@@ -1,6 +1,7 @@
 # Memory and platform
 
-Hexadecimal addresses. Qualified geometry layout preserved.
+Hexadecimal addresses. Fixed-map layout below; the new procedural demo has
+a separate [memory map](INFINITE.en.md). Qualified region boundaries preserved.
 
 | Range | Allocation |
 |---|---|
@@ -8,7 +9,7 @@ Hexadecimal addresses. Qualified geometry layout preserved.
 | 0002–00EC | Renderer, navigation, IRQ state/scratch |
 | 0100–01FF | CPU stack |
 | 0200–07FF | Lookup RAM after temporary loader completes |
-| 0801–2E73 auto / 0801–2C71 interactive | Low program; 140 / 654 bytes before 2F00 |
+| 0801–2E87 auto / 0801–2C85 interactive | Low program; 120 / 634 bytes before 2F00 |
 | 2F00–3BFF | Ray, edge, refinement and projection workspace |
 | 3C00–3FFF | 32×32 solid map |
 | 4400–57FF | Geometry/lookups/fill masks/navigation data |
