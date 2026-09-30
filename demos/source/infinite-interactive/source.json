@@ -1,0 +1,9 @@
+{
+  "bootstrap": "2.5VibePlus4",
+  "sha256": "0BC2B9144903FA8AD89705E6EB2444610989E4022BA8C52E59C78E2F19EAB9A4",
+  "scene": null,
+  "entryPoint": "../../../build_infinite.py",
+  "run": "interactive",
+  "seed": null,
+  "world": "../../../src/infinite/world.py"
+}
