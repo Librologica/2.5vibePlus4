@@ -8,8 +8,6 @@ from mode8.build import build as reference_build, labels, replace
 from kernels import apply
 from ui_font import update_font
 TASS=Path(os.environ.get('TASS64_EXE') or shutil.which('64tass') or shutil.which('64tass.exe') or '64tass')
-EXPECTED={'auto':'0F3D2BECB760564C82781FE3BDD1FBADB1EE75198D2CE608F98B6DB734BB545A',
-          'interactive':'5E1E552858946A8099A31FD9D79010352D54163A6EFDDD4CC7F66E3FD7833532'}
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest().upper()
 def assemble(dest,name):
     cmd=[str(TASS),'-a','-B','--m6502',f'--labels={name}.labels','--vice-labels-numeric',f'--list={name}.listing','-o',f'{name}.prg',f'{name}.asm']
@@ -21,7 +19,7 @@ def build(out,run='auto',kernels='combined',scene=None):
     out=Path(out).resolve()
     if out.is_relative_to(ROOT) or out.exists():raise ValueError('OUTPUT_DIRECTORY: use a new directory outside SDK')
     os.environ['TASS64_EXE']=str(TASS)
-    # Keep the original expected hashes and reproduce them before the new map.
+    # Public build.py verifies the qualified hashes in tests/contracts.json.
     scene=Path(scene).resolve() if scene else ROOT/'examples/demo2-optimized.json'
     base=out/'reference';ref=reference_build(scene,base,run)
     assert ref['contract']['backend']=='mono-portals' and not ref['contract']['automaticFallback']
